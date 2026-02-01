@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jarvey | Jardines y Multiservicios</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="./Logo Empresa.png" alt="Logo Jarvey" class="logo-img">
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#galeria">Proyectos</a></li>
+                <li><a href="#contacto" class="btn-nav">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Jardines y Multiservicios Jarvey</h1>
+            <p>Soluciones integrales para el mantenimiento de tu hogar y jardín.</p>
+            <div class="hero-btns">
+                <a href="#contacto" class="btn">Solicitar Presupuesto Gratis</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios">
+        <h2>Nuestros Servicios Integrales</h2>
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <div class="icon">🌿</div>
+                <h3>Jardinería Profesional</h3>
+                <p>Diseño, podas de altura, césped y mantenimiento integral de zonas verdes.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="icon">💧</div>
+                <h3>Sistemas de Riego</h3>
+                <p>Instalación y reparación de riego automático para optimizar el consumo de agua.</p>
+            </div>
+            <div class="servicio-card">
+                <div class="icon">🛠️</div>
+                <h3>Multiservicios</h3>
+                <p>Pequeñas reparaciones, pintura y mantenimiento técnico para particulares y comunidades.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria" class="galeria-section">
+        <h2>Trabajos Recientes</h2>
+        <div class="galeria-grid">
+            <img src="https://images.unsplash.com/photo-1592150621344-82d47b583821?auto=format&fit=crop&w=400&q=80" alt="Jardín Jarvey 1">
+            <img src="https://images.unsplash.com/photo-1558905734-b8301f5a916e?auto=format&fit=crop&w=400&q=80" alt="Jardín Jarvey 2">
+            <img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=400&q=80" alt="Multiservicios 1">
+            <img src="https://images.unsplash.com/photo-1534710962475-4a29474894b2?auto=format&fit=crop&w=400&q=80" alt="Multiservicios 2">
+        </div>
+    </section>
+
+    <section id="contacto">
+        <h2>Pide tu Presupuesto</h2>
+        <p>Cuéntanos qué necesitas y Jarvey se encarga del resto.</p>
+        <form id="contact-form">
+            <input type="text" placeholder="Tu Nombre" required>
+            <input type="email" placeholder="Tu Correo Electrónico" required>
+            <input type="text" placeholder="Teléfono" required>
+            <textarea placeholder="Explícanos tu proyecto o necesidad..." required></textarea>
+            <button type="submit" class="btn">Enviar Solicitud</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2026 Jardines y Multiservicios Jarvey - Profesionalidad a tu servicio.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/34600000000?text=Hola%20Jarvey,%20necesito%20un%20presupuesto" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span>WhatsApp Directo</span>
+    </a>
+
+    <script src="./script.js"></script>
+</body>
+</html>
