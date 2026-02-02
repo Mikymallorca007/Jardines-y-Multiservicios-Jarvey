@@ -1,53 +1,21 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    /* --- 1. GESTIÓN DEL FORMULARIO CON AJAX --- */
-    const contactForm = document.getElementById('contact-form');
+    /* --- 1. NAVEGACIÓN SUAVE (SCROLL) --- */
+    // Mantenemos la funcionalidad para que al pulsar en el menú la página baje suavemente
+    const links = document.querySelectorAll('nav a, .btn, .hero-btns a');
     
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); 
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
             
-            const data = new FormData(contactForm);
-            const button = contactForm.querySelector('button');
-            const originalText = button.innerText;
-            
-            button.innerText = 'Enviando...';
-            button.disabled = true;
-
-            try {
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    body: data,
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-
-                if (response.ok) {
-                    alert('¡Mensaje enviado con éxito! Recuerda revisar lg97648@gmail.com para activar el servicio la primera vez.');
-                    contactForm.reset();
-                } else {
-                    alert('Error en el envío. Asegúrate de que la página esté subida a GitHub.');
-                }
-            } catch (error) {
-                alert('No se pudo enviar. Desde archivos locales (Windows) Formspree no funciona. ¡Súbelo a GitHub!');
-            } finally {
-                button.innerText = originalText;
-                button.disabled = false;
-            }
-        });
-    }
-
-    /* --- 2. NAVEGACIÓN SUAVE --- */
-    document.querySelectorAll('nav a, .btn').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-            const href = this.getAttribute('href');
             if (href && href.startsWith('#')) {
                 e.preventDefault();
-                const target = document.querySelector(href);
-                if (target) {
+                const targetId = href.substring(1);
+                const targetElement = document.getElementById(targetId);
+                
+                if (targetElement) {
                     window.scrollTo({
-                        top: target.offsetTop - 70,
+                        top: targetElement.offsetTop - 70, // Ajuste para que el menú no tape el título
                         behavior: 'smooth'
                     });
                 }
@@ -55,15 +23,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* --- 3. DISEÑO DEL HEADER AL SCROLL --- */
+    /* --- 2. HEADER DINÁMICO AL HACER SCROLL --- */
+    // El menú cambia ligeramente de aspecto al bajar para mejorar la visibilidad
     const header = document.querySelector('header');
+    
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
             header.style.padding = '5px 5%';
-            header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            header.style.background = 'rgba(255, 255, 255, 0.98)';
+            header.style.boxShadow = '0 2px 15px rgba(0,0,0,0.1)';
         } else {
             header.style.padding = '10px 5%';
+            header.style.background = '#ffffff';
             header.style.boxShadow = 'none';
         }
     });
+
+    /* --- 3. NOTA SOBRE EL FORMULARIO --- */
+    // Hemos eliminado la gestión por fetch/AJAX para permitir que el 'mailto' 
+    // definido en el HTML abra directamente el gestor de correo del usuario.
+    console.log("Configuración de Jarvey lista: Envío directo por mailto activado.");
+
 });
