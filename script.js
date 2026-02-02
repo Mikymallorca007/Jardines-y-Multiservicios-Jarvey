@@ -8,20 +8,25 @@ document.addEventListener('DOMContentLoaded', () => {
             event.preventDefault();
 
             const btn = contactForm.querySelector('button');
+            const originalText = btn.innerText;
             btn.innerText = 'Enviando...';
+            btn.disabled = true;
 
-            // REEMPLAZA ESTOS DOS VALORES CON LOS DE TU PANEL DE EMAILJS
-            const serviceID = 'TU_SERVICE_ID_AQUÍ'; 
-            const templateID = 'TU_TEMPLATE_ID_AQUÍ';
+            // Datos de tu cuenta EmailJS ya integrados
+            const serviceID = 'service_uj0oql7'; 
+            const templateID = 'template_hxkxw4j'; 
 
             emailjs.sendForm(serviceID, templateID, this)
                 .then(() => {
-                    btn.innerText = 'Enviar Solicitud';
+                    btn.innerText = originalText;
+                    btn.disabled = false;
                     alert('¡Mensaje enviado con éxito! Jarvey contactará contigo pronto.');
                     contactForm.reset();
                 }, (err) => {
-                    btn.innerText = 'Enviar Solicitud';
-                    alert('Error al enviar: ' + JSON.stringify(err));
+                    btn.innerText = originalText;
+                    btn.disabled = false;
+                    alert('Hubo un error al enviar el mensaje. Por favor, inténtalo de nuevo.');
+                    console.error('EmailJS Error:', err);
                 });
         });
     }
